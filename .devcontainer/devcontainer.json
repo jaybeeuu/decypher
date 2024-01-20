@@ -1,0 +1,11 @@
+{
+	"$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+	"name": "decypher",
+	"build": { "dockerfile": "Dockerfile" },
+	"runArgs": ["--name", "decypher"],
+	"customizations": {
+    "vscode": {
+      "extensions": ["davidanson.vscode-markdownlint"]
+    }
+  }
+}
