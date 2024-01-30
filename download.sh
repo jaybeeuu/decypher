@@ -1,1 +1,2 @@
 curl https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt > words.txt
+# curl https://gist.githubusercontent.com/h3xx/1976236/raw/bbabb412261386673eff521dddbe1dc815373b1d/wiki-100k.txt > words.txt

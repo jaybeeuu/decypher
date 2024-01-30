@@ -15,19 +15,23 @@ def get_word_signature(word: str) -> str:
 
   return signature
 
-type WordIndex = dict[str, list[str]]
+type SignatureWordMap = dict[str, list[str]]
 
-def word_index_reducer(index: WordIndex, word_signature: tuple[str, str]) -> WordIndex:
+def word_index_reducer(
+  index: SignatureWordMap,
+  word_signature: tuple[str, str]
+) -> SignatureWordMap:
   word, signature = word_signature
 
   if signature not in index:
     index[signature] = []
 
-  index[signature].append(word)
+  index[signature].append(word.upper())
 
   return index
 
-def build_word_index(words: Iterable[str]) -> WordIndex:
-  signatures = ((word, get_word_signature(word)) for word in words)
+def build_signature_word_map(words: Iterable[str]) -> SignatureWordMap:
+  stripped_words = (word.strip() for word in words if not word.startswith("#"))
+  signatures = ((word, get_word_signature(word)) for word in stripped_words)
 
   return functools.reduce(word_index_reducer, signatures, {})

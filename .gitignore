@@ -1,2 +1,5 @@
 words.txt
+signature_word_map.txt
 **/__pycache__
+.pytest_cache
+.mypy_cache
